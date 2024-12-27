@@ -1,0 +1,80 @@
+---
+let menuOpen = false;
+
+function toggleMenu() {
+  menuOpen = !menuOpen;
+}
+import Elfilogo from "@/components/Elfilogo.astro";
+---
+
+<style>
+  header {
+    @apply bg-transparent dark:bg-transparent shadow-md py-4 px-6;
+  }
+
+  .container {
+    @apply flex justify-between items-center mx-auto max-w-7xl;
+  }
+
+  .nav {
+    @apply hidden md:flex space-x-8;
+  }
+
+  .nav a {
+    @apply text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors;
+  }
+
+  .icons {
+    @apply flex items-center space-x-4;
+  }
+
+  .menu-btn {
+    @apply md:hidden text-gray-700 dark:text-gray-300;
+  }
+
+  .mobile-nav {
+    @apply md:hidden absolute top-16 left-0 w-full bg-white dark:bg-gray-900 shadow-md flex flex-col items-center py-4 space-y-4;
+  }
+</style>
+
+<header>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+        <Elfilogo class="h-20 w-20"/>
+
+    </div>
+
+    <!-- Menú de Navegación -->
+    <nav class="nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#blog">Blog</a>
+    </nav>
+
+    <!-- Iconos de búsqueda y compras -->
+    <div class="icons">
+      <button aria-label="Buscar">
+        🔍
+      </button>
+      <button aria-label="Carrito de compras">
+        🛒
+      </button>
+      <!-- Botón Menú Hamburguesa (Móvil) -->
+      <button class="menu-btn" aria-label="Abrir menú">
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú Móvil -->
+  {menuOpen && (
+    <nav class="mobile-nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#blog">Blog</a>
+    </nav>
+  )}
+</header>

@@ -1,11 +1,23 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
+import Layout from "@/layouts/Layout.astro";
+import Header from '@/sections/header.astro';
+import Principal from '@/sections/principal.astro';
+import News from '@/sections/News.astro';
+import Best from '@/sections/Best.astro';
+import Categories from '@/sections/categories.astro';
+import Footer from '@/sections/footer.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="ElfiShop">
+	<Header />
+	<main>
+		<Principal />
+		<News /> 
+		<Best /> 
+		<Categories />
+	</main> 
+	
+	<Footer />
 </Layout>
